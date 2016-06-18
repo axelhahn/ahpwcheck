@@ -1,0 +1,24 @@
+body{
+	font-family:"arial";
+	background:#fff;
+	color:#444;
+	margin: 2em 10%;
+	border: 1px solid #eee;
+	padding: 1em;
+	box-shadow: 0 0 3em #ccc;
+}
+a{color:#339;}
+form{ border: 2px dotted #ccc; margin: 2em 0; padding: 1em;}
+form:after{content: 'form' ; float: right; margin-top: 1.5em; background: #eee; padding: 0.5em 1em;}
+h1{margin: 0;}
+h2{margin: 2em 0; color:#569;}
+hr{border: none; border-top: 2px solid #abc;}
+pre{ background:#eee; padding: 1em;}
+
+/*
+ * ---------------------------------------------------------------------------
+ *  these defintions are for formatting the output div of the password check:
+ */
+#outpwcheck{border: 1px solid #ddd; padding: 0.3em 1em;}
+#outpwcheck .divCheck{float: left; margin-right: 1em; margin-bottom: 1em; border: 0px solid #ccc; border-left: 1em solid #ccc; padding: 0.1em 0.5em; }
+#outpwcheck .divCheck.checkok{background:#cfc; border-left-color: #080; color:#040}

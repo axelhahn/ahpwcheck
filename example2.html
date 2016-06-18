@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo 2 for password checker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="ahpwcheck.class.js"></script>
+        <link rel="stylesheet" type="text/css" href="example.css" />
+    </head>
+    <body>
+        <h1>Demo 2 for password checker (ahpwcheck.class.js)</h1>
+        <a href="example.html">examle 1</a> | <a href="example2.html">examle 2</a> | <a href="example3.html">examle 3</a><hr>
+
+
+        <!-- ************************************************************** -->
+
+        
+        <h2>Override checks</h2>
+        <form>
+            password-field:
+            <input type="text" id="ePassword">
+        </form>
+
+        <div id="outpwcheck"></div>
+        <script id="source">
+
+            var aOptions = {
+                'checks': {
+                    'lcase':{
+                        'required': 0
+                    },
+                    'ucase':{
+                        'required': 4
+                    },
+                    'count':{
+                        'required': 6
+                    }
+                }
+            };
+            var oPwCheck = new ahpwcheck(aOptions);
+            oPwCheck.watch('ePassword', 'outpwcheck');
+        </script>
+
+
+        <!-- ************************************************************** -->
+
+        
+        <h2>Explaination</h2>
+        <p>
+            Let's override definitions for the checks with an options object.<br>
+            In the options use the subkey "checks".<br>
+            <br>
+            - lcase - disable lowercase<br>
+            - ucase - set required chars to 4<br>
+            - count - set password length to 6<br>
+        </p>
+        
+        <script>
+            document.write("<pre>" + document.getElementById("source").innerHTML + "</pre>");
+        </script>
+        
+        <hr>
+        DOCS: <a href="http://www.axel-hahn.de/docs/ahpwcheck/index.htm" target="_blank">http://www.axel-hahn.de/docs/ahpwcheck/index.htm</a>        
+    </body>
+</html>

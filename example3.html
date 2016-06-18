@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo 3 for password checker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="ahpwcheck.class.js"></script>
+        <link rel="stylesheet" type="text/css" href="example.css" />
+        
+        <style>
+        </style>
+    </head>
+    <body>
+        <h1>Demo 3 for password checker (ahpwcheck.class.js)</h1>
+        <a href="example.html">examle 1</a> | <a href="example2.html">examle 2</a> | <a href="example3.html">examle 3</a><hr>
+        
+        
+        <!-- ************************************************************** -->
+        
+        
+        <h2>set other language</h2>
+        <form>
+            password-field:
+            <input type="text" id="ePassword">
+        </form>
+
+        <div id="outpwcheck"></div>
+        <script id="source">
+
+            var aOptions = {
+                'lang': {
+                    'introtext': 'Check des Passwortes - erf&uuml;llte Bedingungen: [COUNT]/ [REQUIRED]',
+
+                    'lcase': 'Kleinbuchstaben (min [REQUIRED]): [COUNT]',
+                    'ucase': 'Grossbuchstaben (min [REQUIRED]): [COUNT]',
+                    'digits': 'Ziffern (min [REQUIRED]): [COUNT]',
+                    'special': 'Sonderzeichen (min [REQUIRED]): [COUNT]',
+                    'count': 'Zeichen (min [REQUIRED]): [COUNT]'
+                }
+            };
+            var oPwCheck = new ahpwcheck(aOptions);
+            oPwCheck.watch('ePassword', 'outpwcheck');
+        </script>
+
+        
+        <!-- ************************************************************** -->
+        
+
+        <h2>Explaination</h2>
+        <p>
+            Language texts an replacements.<br>
+            In the options use the subkey "lang".<br>
+        </p>
+        
+        <script>
+            document.write("<pre>" + document.getElementById("source").innerHTML + "</pre>");
+        </script>
+        
+        <hr>
+        DOCS: <a href="http://www.axel-hahn.de/docs/ahpwcheck/index.htm" target="_blank">http://www.axel-hahn.de/docs/ahpwcheck/index.htm</a>        
+    </body>
+</html>

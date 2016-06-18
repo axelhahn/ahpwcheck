@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo for password checker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="ahpwcheck.class.js"></script>
+        <link rel="stylesheet" type="text/css" href="example.css" />
+    </head>
+    <body>
+        <h1>Demo 1 for password checker (ahpwcheck.class.js)</h1>
+        <a href="example.html">examle 1</a> | <a href="example2.html">examle 2</a> | <a href="example3.html">examle 3</a><hr>
+
+
+        <!-- ************************************************************** -->
+
+        
+        <h2>Basic usage: watch a password field</h2>
+        
+            <form>
+                password-field:
+                <input type="password" id="ePassword">
+            </form>
+
+            <div id="outpwcheck"></div>
+            <script id="source">
+                
+                var oPwCheck = new ahpwcheck();
+                oPwCheck.watch('ePassword', 'outpwcheck');
+            </script>
+
+
+        <!-- ************************************************************** -->
+
+        
+        <h2>Explaination</h2>
+        <p>
+            A simple form contains a password field with id "ePassword".<br>
+            Below the form is a div with id "outpwcheck"<br>
+            <br>
+            The method "watch()" adds a listener. While you type something
+            the output div will be updated.
+        </p>
+        <script>
+            document.write("<pre>" + document.getElementById("source").innerHTML + "</pre>");
+        </script>
+        
+
+        <hr>
+        DOCS: <a href="http://www.axel-hahn.de/docs/ahpwcheck/index.htm" target="_blank">http://www.axel-hahn.de/docs/ahpwcheck/index.htm</a>        
+        
+    </body>
+</html>
