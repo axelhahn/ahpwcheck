@@ -12,7 +12,12 @@
     </head>
     <body>
         <h1>Demo 3 for password checker (ahpwcheck.class.js)</h1>
-        <a href="example.html">examle 1</a> | <a href="example2.html">examle 2</a> | <a href="example3.html">examle 3</a><hr>
+        <nav>
+            <a href="example.html">examle 1</a>
+            <a href="example2.html">examle 2</a>
+            <a href="example3.html">examle 3</a>
+            <a href="example4.html">examle 4</a>
+        </nav>
         
         
         <!-- ************************************************************** -->
@@ -21,7 +26,7 @@
         <h2>set other language</h2>
         <form>
             password-field:
-            <input type="text" id="ePassword">
+            <input type="password" id="ePassword">
         </form>
 
         <div id="outpwcheck"></div>
@@ -29,7 +34,7 @@
 
             var aOptions = {
                 'lang': {
-                    'introtext': 'Check des Passwortes - erf&uuml;llte Bedingungen: [COUNT]/ [REQUIRED]',
+                    'introtext': 'Check des Passwortes - erf&uuml;llte Bedingungen: [COUNT]/ [REQUIRED] (score: [SCORE])',
 
                     'lcase': 'Kleinbuchstaben (min [REQUIRED]): [COUNT]',
                     'ucase': 'Grossbuchstaben (min [REQUIRED]): [COUNT]',
@@ -50,6 +55,7 @@
         <p>
             Language texts an replacements.<br>
             In the options use the subkey "lang".<br>
+            Additionally all replacements were used: [COUNT], [REQUIRED], [SCORE]
         </p>
         
         <script>

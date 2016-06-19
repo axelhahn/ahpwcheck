@@ -6,7 +6,7 @@
  * <br />
  * 
  * @author    Axel Hahn
- * @version   1.0
+ * @version   1.1
  *
  * @this {ahpwcheck}
  * 
@@ -207,6 +207,9 @@ var ahpwcheck = function (aOptions) {
     /**
      * helper function - count captital letters in a string
      * @see _passTests()
+     * 
+     * @param {string}  s  string
+     * @return {string}
      */
     this._countCapitalLetters = function (s) {
         return s.replace(/[^A-Z]*/g, '').length;
@@ -214,6 +217,9 @@ var ahpwcheck = function (aOptions) {
     /**
      * helper function - count digits in a string
      * @see _passTests()
+     * 
+     * @param {string}  s  string
+     * @return {string}
      */
     this._countDigits = function (s) {
         return s.replace(/[^0-9]*/g, '').length;
@@ -222,6 +228,9 @@ var ahpwcheck = function (aOptions) {
     /**
      * helper function - count lowercase letters in a string
      * @see _passTests()
+     * 
+     * @param {string}  s  string
+     * @return {string}
      */
     this._countLowerLetters = function (s) {
         return s.replace(/[^a-z]*/g, '').length;
@@ -230,6 +239,9 @@ var ahpwcheck = function (aOptions) {
     /**
      * helper function - count special chars (non letters or digits) in a string
      * @see _passTests()
+     * 
+     * @param {string}  s  string
+     * @return {string}
      */
     this._countSpecialchars = function (s) {
         return s.replace(/[a-zA-Z0-9]*/g, '').length;
@@ -257,7 +269,8 @@ var ahpwcheck = function (aOptions) {
 
 
     /**
-     * helper function - make single tests and get their counts; get the score
+     * helper function - make single tests and get their counts; get the score$
+     * 
      * @param {string} sPassword  password
      * @returns {undefined}
      */
@@ -288,7 +301,6 @@ var ahpwcheck = function (aOptions) {
      * get object with results containing all single checks and total result 
      * with scoring
      * 
-     * @param {string} sPassword
      * @returns {object}
      */
     this.getChecks = function () {
@@ -336,6 +348,7 @@ var ahpwcheck = function (aOptions) {
 
     /**
      * helper function - replace an integer value
+     * 
      * @param {string}   sLabel    string with placeholders
      * @param {string}   sReplace  placeholder to replace
      * @param {integer}  iValue    value to insert
@@ -357,12 +370,16 @@ var ahpwcheck = function (aOptions) {
         var sLabel=aItem['label'];
         sLabel=this._ReplaceInt(sLabel, '[COUNT]', aItem['count']);
         sLabel=this._ReplaceInt(sLabel, '[REQUIRED]', aItem['required']);
+        if ("score" in aItem){
+            sLabel=this._ReplaceInt(sLabel, '[SCORE]', aItem['score']);
+        }
         return sLabel;
     };
     
     /**
      * re-read watched input field and update visual output; this function
      * will be added as handler to the password field
+     * 
      * @returns {undefined}
      */
     this.checkPw = function () {
@@ -373,6 +390,7 @@ var ahpwcheck = function (aOptions) {
     
     /**
      * ouput all: put introtext and all checks into the output div
+     * 
      * @returns {undefined}
      */
     this.renderAll = function () {
@@ -389,6 +407,7 @@ var ahpwcheck = function (aOptions) {
     
     /**
      * get html code to render all reqired single checks 
+     * 
      * @returns {string}
      */
     this.renderChecks = function () {
@@ -404,6 +423,7 @@ var ahpwcheck = function (aOptions) {
 
     /**
      * get html code to render intro text
+     * 
      * @returns {string}
      */
     this.renderIntro = function () {

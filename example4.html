@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo 4 for password checker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="ahpwcheck.class.js"></script>
+        <link rel="stylesheet" type="text/css" href="example.css" />
+        
+        <style>
+        </style>
+    </head>
+    <body>
+        <h1>Demo 4 for password checker (ahpwcheck.class.js)</h1>
+        <nav>
+            <a href="example.html">examle 1</a>
+            <a href="example2.html">examle 2</a>
+            <a href="example3.html">examle 3</a>
+            <a href="example4.html">examle 4</a>
+        </nav>
+        
+        
+        <!-- ************************************************************** -->
+        
+        
+        <h2>Test password on submit</h2>
+        <p>
+            
+        </p>
+        <form onsubmit="return mysubmit();">
+            password-field:
+            <input type="text" id="ePassword">
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="outpwcheck"></div>
+        <script id="source">
+
+            var oPwCheck = new ahpwcheck();
+            oPwCheck.watch('ePassword', 'outpwcheck');
+            
+            function mysubmit(){
+                var minScore=0.95; // something close to 1 or 1
+                var sPassword=document.getElementById('ePassword').value;
+                var score=oPwCheck.getScore(sPassword);
+                if(score<minScore){
+                    alert("Select a better password, please! (score: "+score+")");
+                    return false;
+                } else {
+                    alert("Password is OK. (score: "+score+")");
+                    return true;
+                }
+            }
+        </script>
+
+        
+        <!-- ************************************************************** -->
+        
+
+        <h2>Explaination</h2>
+        <p>
+            The form conatains an attribute "onsubmit"
+        </p>
+        <pre>&lt;form onsubmit="return mysubmit();"></pre>
+        <p>
+            In the function "mysubmit()" we can check the score if it is axactly or close to 1.<br>
+            With return false the form will not be sent.<br>
+        </p>
+        
+        <script>
+            document.write("<pre>" + document.getElementById("source").innerHTML.replace(/</g, "&lt;") + "</pre>");
+        </script>
+        
+        <hr>
+        DOCS: <a href="http://www.axel-hahn.de/docs/ahpwcheck/index.htm" target="_blank">http://www.axel-hahn.de/docs/ahpwcheck/index.htm</a>        
+    </body>
+</html>

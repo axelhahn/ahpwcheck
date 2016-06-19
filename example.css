@@ -1,18 +1,12 @@
-body{
-	font-family:"arial";
-	background:#fff;
-	color:#444;
-	margin: 2em 10%;
-	border: 1px solid #eee;
-	padding: 1em;
-	box-shadow: 0 0 3em #ccc;
-}
+body{background:#fff; border: 1px solid #eee; box-shadow: 0 0 3em #ccc; color:#444; font-family:"arial"; margin: 2em 10%; padding: 1em;}
 a{color:#339;}
-form{ border: 2px dotted #ccc; margin: 2em 0; padding: 1em;}
+form{ border: 2px dashed #ccc; margin: 2em 0; padding: 1em;}
 form:after{content: 'form' ; float: right; margin-top: 1.5em; background: #eee; padding: 0.5em 1em;}
 h1{margin: 0;}
 h2{margin: 2em 0; color:#569;}
 hr{border: none; border-top: 2px solid #abc;}
+nav{background: #eef;padding: 0 0.5em}
+nav a{text-decoration: none; border-right: 2px solid #aac; padding: 0 1em;}
 pre{ background:#eee; padding: 1em;}
 
 /*
