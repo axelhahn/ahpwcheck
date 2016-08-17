@@ -16,7 +16,8 @@
             <a href="example.html">example 1</a>
             <a href="example2.html">example 2</a>
             <a href="example3.html">example 3</a>
-            <a href="example4.html">example 4</a>
+            <a href="example4.html" class="active">example 4</a>
+            <a href="example5.html">example 5</a>
         </nav>
         
         
@@ -24,12 +25,14 @@
         
         
         <h2>Test password on submit</h2>
-        <p>
-            
+        <p class="info">
+            A demo to react on submit event of a form:<br>
+            Type something and press submit. The you get an alert box that shows
+            the score of the entered password using the getScore method.
         </p>
         <form onsubmit="return mysubmit();">
             password-field:
-            <input type="text" id="ePassword">
+            <input type="password" id="ePassword">
             <input type="submit" value="Submit">
         </form>
 

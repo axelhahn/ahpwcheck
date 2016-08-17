@@ -2,12 +2,15 @@ body{background:#fff; border: 1px solid #eee; box-shadow: 0 0 3em #ccc; color:#4
 a{color:#339;}
 form{ border: 2px dashed #ccc; margin: 2em 0; padding: 1em;}
 form:after{content: 'form' ; float: right; margin-top: 1.5em; background: #eee; padding: 0.5em 1em;}
-h1{margin: 0;}
-h2{margin: 2em 0; color:#569;}
+h1{margin: 0; color:#569; color:#78b;font-size: 250%;}
+h2{margin: 3em 0 2em; color:#569;}
 hr{border: none; border-top: 2px solid #abc;}
-nav{background: #eef;padding: 0 0.5em}
-nav a{text-decoration: none; border-right: 2px solid #aac; padding: 0 1em;}
+nav{background: #e0e8f8; background: linear-gradient(#fff, #e0e8f8); padding: 0.5em}
+nav a{text-decoration: none; border: 0px solid #e0e8f0; color:#67a ;padding: 0.5em;}
+nav a.active{background: #fff; border-top: 2px solid #fc3; }
 pre{ background:#eee; padding: 1em;}
+
+p.info{background: #fff4e0; border-left: 3px dotted; color: #a98; font-size: 105%; padding: 1em; }
 
 /*
  * ---------------------------------------------------------------------------

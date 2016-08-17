@@ -6,7 +6,7 @@
  * <br />
  * 
  * @author    Axel Hahn
- * @version   1.1
+ * @version   1.2
  *
  * @this {ahpwcheck}
  * 
@@ -30,6 +30,7 @@ var ahpwcheck = function (aOptions) {
     this._oDivOut = false; 	  // div object of output
     this._oInput = false; 	  // object of password field
     this.name = false;            // name of the instance outside the class
+    this._sCallback = false;      // callback function on change
 
     /**
      * language specific texts; you can override them with method setOptions
@@ -134,15 +135,12 @@ var ahpwcheck = function (aOptions) {
      * - change weights for scoring
      */
     this.setOptions = function (aOptions) {
+        console.log(aOptions);
         if (aOptions) {
             for (var s in aOptions) {
                 switch (s) {
-                    case 'lang':
-                        for (var s2 in this.aLang) {
-                            if (aOptions[s][s2]){
-                                this.aLang[s2]=aOptions[s][s2];
-                            }
-                        }
+                    case 'callback':
+                        this._sCallback=aOptions[s];
                         break;
                     case 'checks':
                         for (var s2 in this.aChecks) {
@@ -153,6 +151,13 @@ var ahpwcheck = function (aOptions) {
                                 if ("weight" in aOptions[s][s2]){
                                     this.aChecks[s2]['weight']=aOptions[s][s2]['weight'];
                                 };
+                            }
+                        }
+                        break;
+                    case 'lang':
+                        for (var s2 in this.aLang) {
+                            if (aOptions[s][s2]){
+                                this.aLang[s2]=aOptions[s][s2];
                             }
                         }
                         break;
@@ -386,6 +391,9 @@ var ahpwcheck = function (aOptions) {
         var sPassword = this._oInput.value;
         this._passTests(sPassword);
         this.renderAll();
+        if(this._sCallback){
+            eval(this._sCallback);
+        }
     };
     
     /**

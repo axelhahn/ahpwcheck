@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Demo 3 for password checker</title>
+        <title>Demo 5 for password checker</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="ahpwcheck.class.js"></script>
         <link rel="stylesheet" type="text/css" href="example.css" />
         
         <style>
+            form div{background: #f8f8f8; margin: 1em 0; padding: 1em;}
+            #outscore{background: #fc3;}
         </style>
     </head>
     <body>
-        <h1>Demo 3 for password checker (ahpwcheck.class.js)</h1>
+        <h1>Demo 5 for password checker (ahpwcheck.class.js)</h1>
         <nav>
             <a href="example.html">example 1</a>
             <a href="example2.html">example 2</a>
-            <a href="example3.html" class="active">example 3</a>
+            <a href="example3.html">example 3</a>
             <a href="example4.html">example 4</a>
-            <a href="example5.html">example 5</a>
+            <a href="example5.html" class="active">example 5</a>
         </nav>
         
         
         <!-- ************************************************************** -->
         
         
-        <h2>Use another language</h2>
+        <h2>Callback</h2>
         <p class="info">
-            For multilanguage support you can override all texts of the info
-            box.<br>
-            Here is a demo for German texts.
+            You can react if the user types something in the password field:
+            use the callback.<br>
+            Here is a demo to show and update the score.
         </p>
         <form>
-            password-field:
+            enter password:
             <input type="password" id="ePassword">
+            <div>
+                Score: <span id="outscore">-</span>
+            </div>
         </form>
 
         <div id="outpwcheck"></div>
         <script id="source">
-
+            
             var aOptions = {
-                'lang': {
-                    'introtext': 'Check des Passwortes - erf&uuml;llte Bedingungen: [COUNT]/ [REQUIRED] (score: [SCORE])',
-
-                    'lcase': 'Kleinbuchstaben (min [REQUIRED]): [COUNT]',
-                    'ucase': 'Grossbuchstaben (min [REQUIRED]): [COUNT]',
-                    'digits': 'Ziffern (min [REQUIRED]): [COUNT]',
-                    'special': 'Sonderzeichen (min [REQUIRED]): [COUNT]',
-                    'count': 'Zeichen (min [REQUIRED]): [COUNT]'
-                }
+                'callback': 'mycallback()'
             };
+
+            /**
+             * custom callback function
+             */
+            function mycallback(){
+                var sPassword=document.getElementById('ePassword').value;
+                document.getElementById('outscore').innerHTML=oPwCheck.getScore(sPassword);
+            }
+
             var oPwCheck = new ahpwcheck(aOptions);
             oPwCheck.watch('ePassword', 'outpwcheck');
+            
         </script>
 
         
@@ -59,13 +66,14 @@
 
         <h2>Explaination</h2>
         <p>
-            Language texts an replacements.<br>
-            In the options use the subkey "lang".<br>
-            Additionally all replacements were used: [COUNT], [REQUIRED], [SCORE]
+            Use the key "callback" in the aOptions array and use it while 
+            initializing the object.<br>
+            I defined a custom function mycallback that fills the dom id "outscore".
+            <br>
         </p>
         
         <script>
-            document.write("<pre>" + document.getElementById("source").innerHTML + "</pre>");
+            document.write("<pre>" + document.getElementById("source").innerHTML.replace(/</g, "&lt;") + "</pre>");
         </script>
         
         <hr>
