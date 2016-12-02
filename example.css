@@ -8,6 +8,7 @@ hr{border: none; border-top: 2px solid #abc;}
 nav{background: #e0e8f8; background: linear-gradient(#fff, #e0e8f8); padding: 0.5em}
 nav a{text-decoration: none; border: 0px solid #e0e8f0; color:#67a ;padding: 0.5em;}
 nav a.active{background: #fff; border-top: 2px solid #fc3; }
+nav a:hover{text-decoration: underline;}
 pre{ background:#eee; padding: 1em;}
 
 p.info{background: #fff4e0; border-left: 3px dotted; color: #a98; font-size: 105%; padding: 1em; }
